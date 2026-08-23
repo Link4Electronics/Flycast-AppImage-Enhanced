@@ -7,13 +7,12 @@ ARCH=$(uname -m)
 echo "Installing package dependencies..."
 echo "---------------------------------------------------------------"
 pacman -Syu --noconfirm \
-    clang    \
-    libdecor \
+    clang \
     sdl2
 
 echo "Installing debloated packages..."
 echo "---------------------------------------------------------------"
-get-debloated-pkgs --add-common --prefer-nano ! llvm
+get-debloated-pkgs --add-common --prefer-nano libdecor-mini ! llvm
 
 if [ "${DEVEL_RELEASE-}" = 1 ]; then
 	package=flycast-git
